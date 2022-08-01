@@ -1,5 +1,6 @@
 package CosInverse;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ACosFunction {
@@ -47,16 +48,23 @@ public class ACosFunction {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
-        String inp = "";
-        while(!inp.equalsIgnoreCase("e")) {
-            System.out.println("Please enter the value of x (to exit press e): ");
-            inp = input.next();
-            if (!inp.equalsIgnoreCase("e")){
+        char inp = 'x';
+        while(inp!='e') {
+            System.out.println("Output In Radian 1, Output In Degree 2, Exit e");
+            inp = input.next().charAt(0);
+            if (inp!='e'){
                 try {
-                    double x = Double.parseDouble(inp);
+                    System.out.println("Please enter the value of x (to exit press e): ");
+                    double x = input.nextDouble();
                     double result = acos(x);
-                    System.out.println("Output :" + result);
-                } catch(NullPointerException | NumberFormatException c){
+                    if( inp=='1'){
+                        System.out.println("Result in (Radian): " + result);
+                    }
+                    else{
+                        double result_deg = result * 180 / (Constants.PI);
+                        System.out.println("Result (In Degree): " + result_deg);
+                    }
+                } catch(NullPointerException | InputMismatchException c){
                     System.out.println("Invalid Input Format ");
                 }
             }
