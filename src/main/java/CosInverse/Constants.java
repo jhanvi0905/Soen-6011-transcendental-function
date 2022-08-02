@@ -1,5 +1,8 @@
 package CosInverse;
 
+/*
+Final Constants for the CosInverse Function
+ */
 public class Constants {
     public Constants() {}
 

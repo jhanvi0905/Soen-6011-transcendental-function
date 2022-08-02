@@ -2,8 +2,16 @@ package CosInverse;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
+/*
+Calculator Acos Class
+ */
 public class ACosFunction {
+
+    /**
+     * Computes SquareRoot of input number.
+     * @param b_num number to derive squareRoot.
+     * @return squareroot of input number.
+     */
     public static double squareRoot(double b_num)
     {
         double l_iterator;
@@ -17,6 +25,11 @@ public class ACosFunction {
         return sqrt;
     }
 
+    /**
+     * Computes Acos Function.
+     * @param x number to calculate Acos of.
+     * @return Acos value of the input number.
+     */
     public static double acos(double x) {
         double a, b, c, d=0, e, f;
         boolean negate = x < 0;
@@ -45,6 +58,10 @@ public class ACosFunction {
         return 2 * (e + f);
     }
 
+    /**
+     * Main function.
+     * @param args Null.
+     */
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
