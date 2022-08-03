@@ -3,9 +3,9 @@ package CosInverse;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 /*
-Calculator Acos Class
+Calculator Arccos Class
  */
-public class ACosFunction {
+public class ArcCosFunction {
 
     /**
      * Computes SquareRoot of input number.
@@ -27,22 +27,27 @@ public class ACosFunction {
 
     /**
      * Computes Acos Function.
-     * @param x number to calculate Acos of.
+     * @param p_parameter number to calculate Acos of.
      * @return Acos value of the input number.
      */
-    public static double acos(double x) {
-        double negative_number = x<0?1:0;
-        x = Math.abs(x);
-        double ret = -0.0187293;
-        ret = ret * x;
-        ret = ret + 0.0742610;
-        ret = ret * x;
-        ret = ret - 0.2121144;
-        ret = ret * x;
-        ret = ret + 1.5707288;
-        ret = ret * squareRoot(1.0-x);
-        ret = ret - 2 * negative_number * ret;
-        return negative_number * 3.14159265358979 + ret;
+    public static double acos(double p_parameter) {
+        double negative_number = p_parameter<0?1:0;
+
+        if(p_parameter==1) return 0;
+        if(p_parameter==-1) return Constants.PI;
+        if(p_parameter< -1 | p_parameter>1) return -1;
+
+        p_parameter = (p_parameter<0) ? p_parameter*-1: p_parameter;
+        double l_finalResult = Constants.FIXED_VARIABLE_1;
+        l_finalResult = l_finalResult * p_parameter;
+        l_finalResult = l_finalResult + Constants.FIXED_VARIABLE_2;
+        l_finalResult = l_finalResult * p_parameter;
+        l_finalResult = l_finalResult + Constants.FIXED_VARIABLE_3;
+        l_finalResult = l_finalResult * p_parameter;
+        l_finalResult = l_finalResult + Constants.FIXED_VARIABLE_4;
+        l_finalResult = l_finalResult * squareRoot(1.0-p_parameter);
+        l_finalResult = l_finalResult - 2 * negative_number * l_finalResult;
+        return negative_number * Constants.PI + l_finalResult;
     }
 
     /**
