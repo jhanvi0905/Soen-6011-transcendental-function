@@ -49,4 +49,12 @@ public class ACosFunctionTest {
     public void testOutOfRange(){
         assertTrue(ac.acos(3)==-1);
     }
+
+    /*
+    Check result for squareRoot function.
+     */
+    @Test
+    public void testSquareRoot(){
+        assertEquals(1.732, ac.squareRoot(3), 0.001);
+    }
 }

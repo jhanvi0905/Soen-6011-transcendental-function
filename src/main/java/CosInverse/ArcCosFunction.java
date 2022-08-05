@@ -12,7 +12,7 @@ public class ArcCosFunction {
      * @param b_num number to derive squareRoot.
      * @return squareroot of input number.
      */
-    public static double squareRoot(double b_num)
+    public double squareRoot(double b_num)
     {
         double l_iterator;
         double sqrt=b_num/2;
