@@ -187,7 +187,6 @@ In the following environment scenarios, the various interactions with the develo
     $result \gets result- 2*negative*result$\;
     $y \gets negative * \pi + result$\;
     \end{algorithm}
-    \pagebreak
     
     
     \begin{algorithm}
@@ -208,8 +207,35 @@ In the following environment scenarios, the various interactions with the develo
     \KwResult{$y = degree(x)$}
     $y = x * 180/\pi$\;
     \end{algorithm}
+    
+    \begin{algorithm}
+    \caption{Strict Math Algorithm \cite{Strict Math}}
+    \KwData{$-1 \leq x \leq 1$}
+    \KwResult{$y = arccos(x)$}
+    $negate \gets True ? x < 0 : False$\\
+    $x = (negate) ? -x: x$\\
+   \If{$(x==1)$}{$y \gets 0$}
+   \If{$(x==-1)$}{$y \gets \pi$}
+   \If{$(x<-1) | (x>1) $}{$y \gets -1$}
+   \If {$x<1/\pi/2$}{$y \gets \pi/2$}
+   $a \gets (x < 0.5) ? x*x : (negate ? (1+x)*0.5 : (1-x)*0.5)$
+   \\
+   $b \gets a * ((b0 + a * (b1 + a * (b2 + a * (b3 + a * (b4 + a * b5))))) $
+   \\
+   $c \gets 1 + a * (c0 + a * (c1 + a * (c2 + a * c3)))$ 
+   \newline    
+   \If{$x< 0.5$}{$d \gets x - (d1 / 2 - x * (b / c) \\ y = (negate ? \pi/2 - x *(b/c))$}\\
+   $e \gets squareRoot(a)$\\
+   $g gets (a - e * e) / (e + e)$\\
+   $f \gets negate ? b / c * e - d1 / 2 : b / c * e + g$
+   \\
+   $y = 2 * (e + f)$
+    \end{algorithm} 
+    
 \subsection{Description}
-    The aforementioned algorithm is an implementation of the arc cosine derived by the approximation expansion of taylor series of arccos(x) -\cite{Abramowitz Book}. It has several constant approximation values that are used in calculations at each step- the sub functions used in approximation process are squareRoot and absolute which are a part of the developed system in code.
+    The aforementioned algorithm Fast Arc Cosine is an implementation of the arc cosine derived by the approximation expansion of taylor series of arccos(x) -\cite{Abramowitz Book}. It has several constant approximation values that are used in calculations at each step- the sub functions used in approximation process are squareRoot and absolute which are a part of the developed system in code.
+    
+    The other algorithm described as Strict Math Algorithm \cite{Strict Math} is the second choice- and it derives the arc cos functions' approximation constants based on its arc sine calculations.
 \subsection{Algorithm Choices}
     The options to choose from while implementing the function :
     \begin{itemize}
