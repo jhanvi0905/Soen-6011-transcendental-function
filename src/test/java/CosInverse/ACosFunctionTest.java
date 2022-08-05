@@ -9,12 +9,13 @@ import org.junit.Test;
  * This class is used to test the functionality of the CosInverse class.
  */
 public class ACosFunctionTest {
+    ArcCosFunction ac = new ArcCosFunction();
     /*
     Check value at 0.
      */
     @Test
     public void test0() {
-        assertEquals(1.5707963267945, ArcCosFunction.acos(0), 0.0001);
+        assertEquals(1.5707963267945, ac.acos(0), 0.0001);
     }
 
     /*
@@ -22,7 +23,7 @@ public class ACosFunctionTest {
      */
     @Test
     public void testNegative(){
-        assertEquals(1.87548898, ArcCosFunction.acos(-0.3), 0.00001);
+        assertEquals(1.87548898, ac.acos(-0.3), 0.00001);
     }
 
     /*
@@ -30,7 +31,7 @@ public class ACosFunctionTest {
      */
     @Test
     public void testPositive(){
-        assertEquals(1.47062891, ArcCosFunction.acos(0.1), 0.0001);
+        assertEquals(1.47062891, ac.acos(0.1), 0.0001);
     }
 
     /*
@@ -38,7 +39,7 @@ public class ACosFunctionTest {
      */
     @Test
     public void testDegreeResult(){
-        assertEquals(120, ArcCosFunction.acos(-0.5)*180/Constants.PI, 0.005);
+        assertEquals(120, ac.convert_to_degree(ac.acos(-0.5)), 0.005);
     }
 
     /*
@@ -46,6 +47,6 @@ public class ACosFunctionTest {
      */
     @Test
     public void testOutOfRange(){
-        assertTrue(ArcCosFunction.acos(3)==-1);
+        assertTrue(ac.acos(3)==-1);
     }
 }

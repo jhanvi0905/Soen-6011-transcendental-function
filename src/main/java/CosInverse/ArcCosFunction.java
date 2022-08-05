@@ -30,7 +30,7 @@ public class ArcCosFunction {
      * @param p_parameter number to calculate Acos of.
      * @return Acos value of the input number.
      */
-    public static double acos(double p_parameter) {
+    public double acos(double p_parameter) {
         double negative_number = p_parameter<0?1:0;
 
         if(p_parameter==1) return 0;
@@ -51,12 +51,23 @@ public class ArcCosFunction {
     }
 
     /**
+     * Computes degree value for given radian.
+     * @param p_radian_value number.
+     * @return degree value.
+     */
+    public double convert_to_degree(double p_radian_value)
+    {
+        return p_radian_value * (180/Constants.PI);
+    }
+
+    /**
      * Main function.
      * @param args Null.
      */
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
+        ArcCosFunction o_ac = new ArcCosFunction();
         char inp = 'x';
         while(inp!='e') {
             System.out.println("Output In Radian 1, Output In Degree 2, Exit e");
@@ -65,12 +76,12 @@ public class ArcCosFunction {
                 try {
                     System.out.println("Please enter the value of x (to exit press e): ");
                     double x = input.nextDouble();
-                    double result = acos(x);
+                    double result = o_ac.acos(x);
                     if( inp=='1'){
                         System.out.println("Result in (Radian): " + result);
                     }
                     else{
-                        double result_deg = result * 180 / (Constants.PI);
+                        double result_deg = o_ac.convert_to_degree(result);
                         System.out.println("Result (In Degree): " + result_deg);
                     }
                 } catch(NullPointerException | InputMismatchException c){
